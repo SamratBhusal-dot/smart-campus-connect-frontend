@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Campus Connect - Create Listing</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <header class="logo-header">
+        <img src="https://i.ibb.co/9mwCpFWM/logo.png" alt="Smart Campus Connect Logo" class="logo" />
+        <h1>Smart Campus Connect</h1>
+        <p>Post a New Item for Sale</p>
+    </header>
+
+    <main class="create-listing-content">
+        <form id="createListingForm" class="listing-form">
+            <p class="note">Note: Required fields are marked with an asterisk (*)</p>
+
+            <label for="title">*Item Title:</label>
+            <input type="text" id="title" name="title" required />
+
+            <label for="description">*Description:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <label for="price">*Price ($):</label>
+            <input type="number" id="price" name="price" step="0.01" min="0" required />
+
+            <label for="category">*Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select a Category</option>
+                <option value="book">Book</option>
+                <option value="electronics">Electronics</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Image upload is more complex for a simple HTML/JS app.
+                 For now, we'll omit direct image uploads and focus on text data.
+                 If you want image support, we'd need to integrate a cloud storage service like Firebase Storage.
+            -->
+            <!-- <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" /> -->
+
+            <div class="form-actions">
+                <button type="submit" class="button-primary"><i class="fas fa-upload"></i> Post Listing</button>
+                <button type="button" id="cancelBtn" class="button-secondary"><i class="fas fa-times-circle"></i> Cancel</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Campus Connect. All rights reserved.</p>
+    </footer>
+</div>
+
+<script src="marketplace.js"></script>
+</body>
+</html>
