@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Campus Connect - Register</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="logo-header">
+      <img src="https://i.ibb.co/9mwCpFWM/logo.png" alt="Smart Campus Connect Logo" class="logo" />
+      <h1>Smart Campus Connect</h1>
+      <p>New User Registration</p>
+    </header>
+
+    <main class="login-box">
+      <form class="register-form">
+        <p class="note">Note: Required fields are marked with an asterisk (*)</p>
+
+        <label for="regUsername">*Username:</label>
+        <input type="text" id="regUsername" name="regUsername" required />
+
+        <label for="regEmail">*Email:</label>
+        <input type="email" id="regEmail" name="regEmail" required />
+
+        <label for="regPassword">*Password:</label>
+        <input type="password" id="regPassword" name="regPassword" required />
+
+        <label for="confirmPassword">*Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required />
+
+        <button type="submit" class="login-button">Register</button>
+
+        <div class="support-links">
+          <p>
+            Already have an account? <a href="index.html">Login Here</a>
+          </p>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Smart Campus Connect. All rights reserved.</p>
+      <p class="warning">Please use only one device at a time.</p>
+    </footer>
+  </div>
+  <script src="registration.js"></script> <!-- Link to the new registration.js -->
+</body>
+</html>

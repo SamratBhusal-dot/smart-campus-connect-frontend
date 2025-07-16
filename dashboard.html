@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Campus Connect - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f3f5;
+      color: #333;
+    }
+
+    .dashboard-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 30px;
+      font-size: 1.4em;
+    }
+
+    .sidebar nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 10px 0;
+      display: block;
+    }
+
+    .sidebar nav a:hover {
+      text-decoration: underline;
+    }
+
+    .logout {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+      color: #007bff;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85em;
+      background-color: #e9ecef;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-layout {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+      }
+      .sidebar nav {
+        display: flex;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div>
+        <h2>Welcome, Student</h2>
+        <nav>
+          <a href="#">Dashboard</a>
+          <a href="#">Courses</a>
+          <a href="#">Materials</a>
+          <a href="#">Notifications</a>
+          <a href="#">Profile</a>
+        </nav>
+      </div>
+      <div class="logout">
+        <a href="#" id="logoutButton">Logout</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="header">
+        <h1>Smart Campus Connect</h1>
+        <span id="currentDate"></span>
+      </div>
+
+      <section class="card-grid">
+        <a href="https://www.columbiacollege.ca/programs/courses/5/" target="_blank" class="card" style="text-decoration: none;">
+  <h3>📘 Courses</h3>
+  <p>Explore all academic courses offered at Columbia College across various disciplines.</p>
+</a>
+
+       <a href="materials.html" class="card" style="text-decoration: none;">
+  <h3>📚 Study Materials</h3>
+  <p>Access shared lecture notes, past exams, and student-submitted resources to help you study smarter.</p>
+</a>
+
+        <div class="card">
+          <h3>📢 Announcements</h3>
+          <p>Stay updated with the latest campus news and alerts.</p>
+        </div>
+        <div class="card">
+          <h3>🧑 Profile</h3>
+          <p>Manage your contact details and student profile info.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 Smart Campus Connect. All rights reserved. <br />
+    <span style="color:red">Please use only one device at a time.</span>
+  </footer>
+
+  <script>
+    // Redirect if not logged in
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Please log in to access your dashboard.');
+        window.location.href = 'index.html';
+      }
+
+      document.getElementById('logoutButton').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        alert('You have been logged out.');
+        window.location.href = 'index.html';
+      });
+
+      // Date display
+      const dateEl = document.getElementById('currentDate');
+      const today = new Date();
+      dateEl.textContent = today.toDateString();
+    });
+  </script>
+</body>
+</html>
